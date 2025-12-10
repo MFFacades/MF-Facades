@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>MF Façades - Façades & Rénovations à Gaillac</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="MF Façades à Gaillac : ravalement de façades, enduits, crépi, rénovation extérieure et traitement des façades. Devis gratuit.">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0c0c0f;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      background: #050507;
+      border-bottom: 3px solid #ff5a1f;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0.7rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      font-size: 0.95rem;
+    }
+    .logo-icon {
+      width: 30px;
+      height: 30px;
+      background: #ff5a1f;
+      border-radius: 4px;
+      position: relative;
+      box-shadow: 0 0 0 1px #111;
+    }
+    .logo-icon::before,
+    .logo-icon::after {
+      content: "";
+      position: absolute;
+      border: 2px solid #111;
+    }
+    .logo-icon::before {
+      inset: 4px 6px 8px 6px;
+      border-radius: 2px;
+    }
+    .logo-icon::after {
+      left: 6px;
+      right: 6px;
+      top: 10px;
+      border-top: 2px solid #111;
+    }
+    .logo-sub {
+      display: block;
+      font-weight: 400;
+      font-size: 0.7rem;
+      text-transform: none;
+      color: #cccccc;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0.8rem;
+      font-size: 0.85rem;
+    }
+    .nav-links a {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: transparent;
+      transition: background .15s, color .15s;
+    }
+    .nav-links a:hover {
+      background: #18181d;
+      color: #ff5a1f;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      background: #ff5a1f;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      cursor: pointer;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      white-space: nowrap;
+    }
+    .btn:hover {
+      background: #ff7237;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.6);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 1.8rem 1rem 3rem;
+    }
+
+    /* BANNIÈRE SLOGAN */
+    .slogan-wrap {
+      background: radial-gradient(circle at top left, #222532, #05060a 60%);
+      border-bottom: 3px solid #ff5a1f;
+      position: relative;
+      overflow: hidden;
+    }
+    .slogan-diag {
+      position: absolute;
+      right: -20%;
+      top: 0;
+      bottom: 0;
+      width: 60%;
+      background: #ff5a1f;
+      transform: skewX(-18deg);
+      opacity: 0.9;
+    }
+    .slogan {
+      position: relative;
+      max-width: 1100px;
+      margin: auto;
+      padding: 2.2rem 1rem 2.5rem;
+      text-align: center;
+      color: #ffffff;
+    }
+    .slogan-line {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-style: italic;
+      font-size: 2.1rem;
+      line-height: 1.1;
+      text-shadow: 0 4px 14px rgba(0,0,0,.8);
+    }
+    .slogan-line + .slogan-line {
+      margin-top: 0.6rem;
+    }
+    .slogan-icon {
+      margin: 1.1rem auto 0;
+      width: 68px;
+      height: 68px;
+      position: relative;
+    }
+    .slogan-icon::before,
+    .slogan-icon::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.85);
+    }
+    .slogan-icon::after {
+      inset: 9px;
+      border-width: 3px;
+      border-style: double;
+    }
+    .slogan-cross {
+      position: absolute;
+      inset: 16px;
+      background:
+        linear-gradient(90deg, transparent 40%, #fff 40%, #fff 60%, transparent 60%),
+        linear-gradient(0deg, transparent 40%, #fff 40%, #fff 60%, transparent 60%);
+      clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%);
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 2rem;
+      align-items: center;
+      padding-top: 1.8rem;
+    }
+    .hero-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #c0c0c0;
+      margin-bottom: 0.7rem;
+    }
+    .hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.4rem;
+    }
+    .hero h1 span { color: #ff5a1f; }
+    .hero-sub {
+      color: #d2d2d2;
+      margin-bottom: 1rem;
+      max-width: 540px;
+      font-size: 0.96rem;
+    }
+    .hero-list {
+      list-style: none;
+      margin: 0.5rem 0 1.3rem;
+      font-size: 0.92rem;
+      color: #e0e0e0;
+    }
+    .hero-list li {
+      display: flex;
+      gap: 0.45rem;
+      align-items: center;
+      margin-bottom: 0.25rem;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #ff5a1f;
+      flex-shrink: 0;
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .hero-contact {
+      font-size: 0.9rem;
+      color: #d0d0d0;
+    }
+    .hero-contact strong { color: #fff; }
+
+    .social-links {
+      font-size: 0.88rem;
+      margin-top: 0.4rem;
+    }
+    .social-links span { color: #bbbbbb; }
+    .social-links a {
+      color: #ff5a1f;
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+
+    .hero-card {
+      background:
+        radial-gradient(circle at top left, rgba(255,90,31,.85), transparent 55%),
+        radial-gradient(circle at bottom right, #111119, #050507 65%);
+      border-radius: 16px;
+      padding: 1.5rem 1.3rem;
+      border: 1px solid #262631;
+      box-shadow: 0 22px 50px rgba(0,0,0,.7);
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .hero-card-title {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 0.72rem;
+      color: #f7f7f7;
+    }
+    .hero-card-main {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    .hero-card-line {
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(to right, rgba(255,255,255,.7), transparent);
+      margin: 0.35rem 0 0.5rem;
+    }
+    .hero-card-list {
+      list-style: none;
+      font-size: 0.88rem;
+      color: #f2f2f2;
+    }
+    .hero-card-list li + li { margin-top: 0.25rem; }
+    .hero-card-footer {
+      font-size: 0.8rem;
+      color: #e7e7e7;
+      opacity: 0.9;
+    }
+
+    section {
+      padding-top: 2.4rem;
+    }
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+    .section-intro {
+      font-size: 0.95rem;
+      color: #c4c4c4;
+      margin-bottom: 1.4rem;
+      max-width: 700px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.4rem;
+    }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      background: #15151b;
+      border-radius: 14px;
+      border: 1px solid #25252e;
+      padding: 1.2rem 1rem;
+      font-size: 0.92rem;
+    }
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+    .card ul {
+      list-style: none;
+      color: #d8d8d8;
+      padding-left: 0;
+    }
+    .card ul li + li { margin-top: 0.2rem; }
+
+    /* Galerie */
+    .gallery {
+      display: grid;
+      gap: 0.9rem;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+    .gallery-item {
+      background: #15151b;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #262631;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.85), transparent);
+      padding: 0.5rem 0.55rem 0.55rem;
+      font-size: 0.78rem;
+      color: #f3f3f3;
+    }
+
+    .about {
+      display: grid;
+      gap: 1.6rem;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+    }
+    .about-block {
+      background: #15151b;
+      border-radius: 14px;
+      border: 1px solid #25252e;
+      padding: 1.2rem 1rem;
+      font-size: 0.94rem;
+      color: #dcdcdc;
+    }
+
+    .contact-layout {
+      display: grid;
+      gap: 1.8rem;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+    }
+    form {
+      display: grid;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+    }
+    label { display: block; margin-bottom: 0.18rem; }
+    input, textarea {
+      width: 100%;
+      padding: 0.55rem 0.7rem;
+      border-radius: 10px;
+      border: 1px solid #30303a;
+      background: #0e0e13;
+      color: #f5f5f5;
+      font: inherit;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+
+    .contact-box {
+      background: #15151b;
+      border-radius: 14px;
+      border: 1px solid #25252e;
+      padding: 1.1rem 1rem;
+      font-size: 0.9rem;
+      color: #e1e1e1;
+    }
+    .contact-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #b6b6b6;
+      margin-top: 0.4rem;
+    }
+
+    footer {
+      background: #050507;
+      border-top: 2px solid #ff5a1f;
+      margin-top: 2.8rem;
+      text-align: center;
+      padding: 1.4rem 1rem 1.8rem;
+      font-size: 0.82rem;
+      color: #9c9cc; 
+    }
+    footer a {
+      color: #ff5a1f;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .hero-card { order: -1; }
+      .grid-3, .gallery {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .about, .contact-layout {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .nav-links { display: none; }
+      .slogan-line { font-size: 1.7rem; }
+    }
+    @media (max-width: 640px) {
+      main { padding-inline: 0.9rem; }
+      .hero h1 { font-size: 1.9rem; }
+      .gallery { grid-template-columns: minmax(0,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-icon"></div>
+      <div>
+        MF Façades
+        <span class="logo-sub">Façades & rénovations · Gaillac (81600)</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- BANNIÈRE SLOGAN -->
+<div class="slogan-wrap">
+  <div class="slogan-diag"></div>
+  <section class="slogan">
+    <div class="slogan-line">Votre Projet</div>
+    <div class="slogan-line">Notre Priorité</div>
+    <div class="slogan-icon">
+      <div class="slogan-cross"></div>
+    </div>
+  </section>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="accueil">
+    <div>
+      <div class="hero-badge">MF Façades · Artisan façadier</div>
+      <h1>
+        Tous types de <span>façades</span> & <span>rénovations</span> extérieures
+      </h1>
+      <p class="hero-sub">
+        MF Façades, dirigé par Fernandes Ferreira Miguel, réalise vos travaux de ravalement,
+        enduits, crépi et rénovation extérieure autour de Gaillac (81600) et ses environs.
+      </p>
+      <ul class="hero-list">
+        <li><span class="dot"></span> Ravalement complet de façades maisons & immeubles</li>
+        <li><span class="dot"></span> Enduits projetés, talochés, grattés, crépis décoratifs</li>
+        <li><span class="dot"></span> Traitement, nettoyage & protection hydrofuge</li>
+      </ul>
+      <div class="hero-cta">
+        <a href="tel:0613844779" class="btn">Appeler pour un devis</a>
+        <div class="hero-contact">
+          📞 <strong>06 13 84 47 79</strong><br>
+          📧 <strong><a href="mailto:MFFacades@outlook.fr">MFFacades@outlook.fr</a></strong>
+        </div>
+      </div>
+      <p class="social-links">
+        <span>📲 Suivez MF Façades :</span>
+        <a href="https://www.instagram.com/mf_facades/" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@miiguelIangello" target="_blank">TikTok</a>
+        <a href="https://www.facebook.com/profile.php?id=61582135377603" target="_blank">Facebook</a>
+      </p>
+    </div>
+
+    <aside class="hero-card">
+      <div>
+        <div class="hero-card-title">Carte professionnelle</div>
+        <div class="hero-card-line"></div>
+        <div class="hero-card-main">MF Façades</div>
+        <div style="font-size:0.9rem; margin-top:0.1rem;">
+          Tous types de façades & rénovations extérieures
+        </div>
+      </div>
+      <ul class="hero-card-list">
+        <li><strong>Responsable :</strong> Fernandes Ferreira Miguel</li>
+        <li><strong>Téléphone :</strong> 06 13 84 47 79</li>
+        <li><strong>Email :</strong> <a href="mailto:MFFacades@outlook.fr">MFFacades@outlook.fr</a></li>
+        <li><strong>Adresse :</strong> 474 chemin de Cariven, 81600 Gaillac</li>
+      </ul>
+      <div class="hero-card-footer">
+        Déplacement et devis gratuits selon projet · Interventions chez particuliers & professionnels.
+      </div>
+    </aside>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2>Nos services</h2>
+    <p class="section-intro">
+      MF Façades prend en charge l’ensemble de vos travaux de façade, du simple rafraîchissement
+      à la rénovation complète : maisons individuelles, immeubles, commerces, murs de clôture…
+    </p>
+
+    <div class="grid grid-3">
+      <article class="card">
+        <h3>Travaux de façade</h3>
+        <ul>
+          <li>Ravalement complet de façades</li>
+          <li>Nettoyage, décapage & préparation des supports</li>
+          <li>Réparation de fissures et reprises d’enduit</li>
+          <li>Peinture de façade, pignons et soubassements</li>
+          <li>Traitement anti-mousse & protection hydrofuge</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Enduits & finitions</h3>
+        <ul>
+          <li>Enduits projetés et monocouches</li>
+          <li>Finitions talochées, grattées, ribbées</li>
+          <li>Crépis et finitions décoratives</li>
+          <li>Encadrements de fenêtres & modénatures</li>
+          <li>Soubassements et murets assortis à la façade</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Services +</h3>
+        <ul>
+          <li>Conseils personnalisés sur teintes & finitions</li>
+          <li>Protection des abords et nettoyage de fin de chantier</li>
+          <li>Devis gratuit et détaillé</li>
+          <li>Intervention autour de Gaillac et secteurs proches</li>
+          <li>Artisan à l’écoute, un seul interlocuteur du début à la fin</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- REALISATIONS -->
+  <section id="realisations">
+    <h2>Réalisations récentes</h2>
+    <p class="section-intro">
+      Quelques exemples de chantiers réalisés par MF Façades : ravalement, enduits, pierres apparentes
+      et façades neuves.
+    </p>
+
+    <div class="gallery">
+      <figure class="gallery-item">
+        <img src="images/facade-pierre-volets-bleus.jpg" alt="Maison en pierre avec volets bleus">
+        <figcaption>Maison en pierre rénovée avec volets bleus et reprise des encadrements.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/facade-pierre-brique.jpg" alt="Maison en pierre et brique">
+        <figcaption>Façade en pierre et brique nettoyée et remise en valeur.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/maison-tourelle-enduit.jpg" alt="Maison avec tourelle enduite">
+        <figcaption>Maison avec tourelle – enduit ton pierre et finitions soignées.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/maison-jardin-arriere.jpg" alt="Façade maison avec jardin">
+        <figcaption>Rénovation d’une façade côté jardin avec teinte moderne.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/maison-jardin-avant.jpg" alt="Façade avant maison">
+        <figcaption>Façade avant traitée, enduit uniforme et détails en briques apparentes.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/maison-enduit-ocre.jpg" alt="Maison enduit ton ocre">
+        <figcaption>Façade ton ocre avec encadrements blancs et briques en contraste.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/garage-avant.jpg" alt="Garage avant travaux">
+        <figcaption>Avant travaux – mur brut sous abri.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/garage-apres.jpg" alt="Garage après travaux">
+        <figcaption>Après travaux – enduit gris clair et finitions propres.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/mur-pierre-interieur.jpg" alt="Mur intérieur en pierre">
+        <figcaption>Mur intérieur en pierre rejointé à la chaux, style authentique.</figcaption>
+      </figure>
+    </div>
+
+    <p class="section-intro" style="margin-top:1rem; font-size:0.85rem;">
+      Pour que toutes les photos s’affichent, ajoute vos images dans un dossier
+      <code>images</code> sur GitHub avec les mêmes noms de fichiers
+      (par exemple <code>facade-pierre-volets-bleus.jpg</code>, etc.).
+    </p>
+  </section>
+
+  <!-- A PROPOS -->
+  <section id="apropos">
+    <h2>À propos de MF Façades</h2>
+    <div class="about">
+      <div class="about-block">
+        <p>
+          Basée à <strong>Gaillac (81600)</strong>, l’entreprise <strong>MF Façades</strong> est spécialisée
+          dans les travaux de façades et de rénovation extérieure. Aux commandes, Fernandes Ferreira Miguel,
+          façadier expérimenté, met un point d’honneur à fournir un travail propre et durable.
+        </p>
+        <p style="margin-top:0.7rem;">
+          Chaque chantier est étudié : état du support, environnement, choix des matériaux et des teintes.
+          L’objectif : valoriser votre maison tout en la protégeant dans le temps.
+        </p>
+      </div>
+      <div class="about-block">
+        <p><strong>Pourquoi faire appel à MF Façades ?</strong></p>
+        <ul style="margin-top:0.4rem; padding-left:1.1rem;">
+          <li>✔ Artisan local, connaissance du secteur de Gaillac et alentours</li>
+          <li>✔ Un seul interlocuteur du devis à la fin du chantier</li>
+          <li>✔ Chantiers protégés, propres et respect des délais</li>
+          <li>✔ Devis clairs et transparents, sans surprise</li>
+          <li>✔ Travail soigné, finitions adaptées à chaque style de maison</li>
+        </ul>
+        <p style="margin-top:0.7rem;">
+          Pour une rénovation complète, un simple rafraîchissement ou un traitement préventif,
+          MF Façades est à votre écoute.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Zone d’intervention & contact</h2>
+    <p class="section-intro">
+      MF Façades intervient principalement à <strong>Gaillac</strong> et dans les communes voisines.
+      Pour toute demande de devis ou de renseignement, contactez-nous directement :
+    </p>
+
+    <div class="contact-layout">
+      <div>
+        <form>
+          <div>
+            <label for="nom">Nom *</label>
+            <input id="nom" type="text" placeholder="Votre nom" required>
+          </div>
+          <div>
+            <label for="email">E-mail *</label>
+            <input id="email" type="email" placeholder="votre@email.fr" required>
+          </div>
+          <div>
+            <label for="tel">Téléphone</label>
+            <input id="tel" type="tel" placeholder="Votre numéro">
+          </div>
+          <div>
+            <label for="message">Votre projet *</label>
+            <textarea id="message" placeholder="Décrivez brièvement vos besoins (type de façade, travaux, ville...)"></textarea>
+          </div>
+          <button type="button" class="btn">Envoyer la demande de devis</button>
+          <p style="font-size:0.75rem; color:#aaaaaa; margin-top:0.4rem;">
+            (Formulaire visuel uniquement. Pour recevoir les demandes, utilisez votre e-mail ou ajoutez une solution d’envoi plus tard.)
+          </p>
+        </form>
+      </div>
+
+      <aside class="contact-box">
+        <p class="contact-label">Téléphone</p>
+        <p>📞 <strong><a href="tel:0613844779">06 13 84 47 79</a></strong></p>
+
+        <p class="contact-label">E-mail</p>
+        <p>📧 <strong><a href="mailto:MFFacades@outlook.fr">MFFacades@outlook.fr</a></strong></p>
+
+        <p class="contact-label">Adresse</p>
+        <p>🏠 474 chemin de Cariven<br>81600 Gaillac</p>
+
+        <p class="contact-label">Réseaux sociaux</p>
+        <p>
+          📸 <a href="https://www.instagram.com/mf_facades/" target="_blank">Instagram</a><br>
+          🎥 <a href="https://www.tiktok.com/@miiguelIangello" target="_blank">TikTok</a><br>
+          📘 <a href="https://www.facebook.com/profile.php?id=61582135377603" target="_blank">Facebook</a>
+        </p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div style="margin-bottom:0.4rem;">
+    Site officiel de MF Façades – Fernandes Ferreira Miguel, façadier à Gaillac (81600).
+  </div>
+  <div>
+    © <span id="year"></span> MF Façades · Tous droits réservés.
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
