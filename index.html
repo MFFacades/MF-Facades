@@ -58,18 +58,34 @@
       z-index:-2;
     }
 
-    }
+  .page::after {
+    content: "";
+    position: absolute;
 
-    }
-    .page::after{
-      content:"";
-      position:absolute;
-      inset:-40px -80px -40px 40%;
-      background:linear-gradient(135deg,var(--mf-red-dark),var(--mf-red) 55%,#dfdfdd 85%,#f6f6f6);
-      clip-path:polygon(100% 0,100% 100%,35% 100%,80% 0);
-      box-shadow:-10px 10px 40px rgba(0,0,0,.9);
-      z-index:-1;
-    }
+    /* POSITIONNEMENT POUR METTRE LA BANDE PLUS AU MILIEU */
+    top: 0;
+    right: 0;
+    width: 55%;   /* largeur de la bande -> réduit pour être plus fine */
+    height: 100%;
+
+    /* BANDE ORANGE + TRANSPARENCE */
+    background: linear-gradient(
+        135deg,
+        rgba(255, 80, 40, 0.55) 0%,      /* Orange avec transparence */
+        rgba(255, 40, 20, 0.55) 55%,
+        rgba(220, 220, 220, 0.10) 85%
+    );
+
+    /* FORME DE LA DIAGONALE */
+    clip-path: polygon(100% 0, 100% 100%, 35% 100%, 60% 0);
+
+    /* SUPPRESSION DE L’OMBRE TROP FORTE */
+    box-shadow: none;
+
+    z-index: -1;
+}
+
+    
 
     main{max-width:1020px;margin:0 auto;}
 
