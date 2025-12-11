@@ -58,7 +58,10 @@
       filter:brightness(0.2);
       z-index:-8;
     }
-    .page::after{
+    
+  z-index:-1;
+}
+ .page::after{
   content:"";
   position:absolute;
   inset:-80px;
@@ -66,17 +69,16 @@
     linear-gradient(
       -35deg,
       rgba(255,255,255,0) 35%,
-      rgba(243,73,39,0.95) 35%,
-      rgba(243,73,39,0.95) 48%,
+      rgba(243,73,39,0.55) 35%,
+      rgba(243,73,39,0.55) 48%,
       rgba(255,255,255,0) 48%
     );
   z-index:-1;
 }
- 
+
 }
 
-    );
-  z-index:-1;
+   
 }
 
    
