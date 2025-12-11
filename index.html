@@ -47,17 +47,18 @@
     }
 
     /* FOND ARDOISE + DIAGONALE ROUGE/GRIS */
-    .page::before{
+        .page::before{
       content:"";
       position:absolute;
       inset:-80px;
-      background:
-        linear-gradient(#151923 1px, transparent 1px) 0 0 / 100% 40px repeat-y,
-        linear-gradient(90deg,#151923 1px, transparent 1px) 0 0 / 50px 100% repeat-x,
-        radial-gradient(circle at top,#1b2131 0,#05070b 55%);
-      opacity:0.97;
+      background-image:url("images/fond-pierre.jpg");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      filter:brightness(0.9);
       z-index:-2;
     }
+
     .page::after{
       content:"";
       position:absolute;
