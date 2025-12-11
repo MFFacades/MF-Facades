@@ -45,16 +45,18 @@
     }
 
     /* FOND : ardoise + diagonale rouge/gris */
-    .page::before{
+        .page::before{
       content:"";
       position:absolute;
       inset:-80px;
-      background:
-        linear-gradient(#151923 1px, transparent 1px) 0 0 / 100% 38px repeat-y,
-        linear-gradient(90deg,#151923 1px, transparent 1px) 0 0 / 48px 100% repeat-x,
-        radial-gradient(circle at top,#1b212f 0,#05060a 60%);
-      opacity:0.96;
+      background-image:url("images/fond-pierre.jpg");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      filter:brightness(0.9);
       z-index:-2;
+    }
+
     }
     .page::after{
       content:"";
