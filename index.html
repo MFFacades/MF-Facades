@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>MF Façades – Votre façadier dans le Tarn et l'Aude</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Police script proche de ta carte + serif élégante -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- RESET ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+      background-color: #05070b;
+      color: #f8f8f8;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ---------- LAYOUT GLOBAL ---------- */
+    .page {
+      min-height: 100vh;
+      background-image:
+        linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+        url("images/fond-briques-noires.jpg"); /* <-- mets ici ta texture de pierre noire */
+      background-size: cover;
+      background-position: center;
+      color: #fffaf2;
+    }
+
+    .content-width {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    header {
+      padding: 1.5rem 0 0.75rem;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav a {
+      position: relative;
+      padding-bottom: 0.2rem;
+      font-weight: 500;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #f04b31;
+      transition: width 0.25s ease-out;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 2.5rem 0 3rem;
+    }
+
+    /* Bande diagonale rouge + gris comme sur ton visuel */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -10%;
+      right: -35%;
+      width: 80%;
+      height: 140%;
+      background-image:
+        linear-gradient(
+          135deg,
+          #f04b31 0%,
+          #f04b31 50%,
+          #d7d3cf 50%,
+          #d7d3cf 100%
+        );
+      opacity: 0.95;
+      transform: skewX(-18deg);
+      z-index: 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-tagline {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(2.6rem, 6vw, 3.8rem);
+      font-weight: 400;
+      color: #fffaf2;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.7);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-tagline span.break {
+      display: block;
+      margin-top: 0.3rem;
+    }
+
+    .hero-cross {
+      margin: 0.8rem auto 1.8rem;
+      width: 70px;
+      height: 70px;
+    }
+
+    .hero-cross img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.8));
+    }
+
+    .hero-main-title {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      max-width: 32rem;
+      margin: 0 auto 1rem;
+      font-weight: 700;
+    }
+
+    .hero-description {
+      max-width: 46rem;
+      margin: 0.3rem auto;
+      font-size: clamp(1rem, 2.3vw, 1.15rem);
+    }
+
+    .hero-description strong {
+      color: #f6c3a7;
+      font-weight: 700;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* À PROPOS + PHOTOS */
+    .about {
+      padding: 3rem 0 2.5rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 880px) {
+      .about-grid {
+        grid-template-columns: 1.1fr 1.1fr;
+        align-items: flex-start;
+      }
+    }
+
+    .about-title {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(2.4rem, 4vw, 3rem);
+      margin-bottom: 0.4rem;
+      color: #fffaf2;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.8);
+    }
+
+    .about-name {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(1.9rem, 3vw, 2.2rem);
+      margin-bottom: 0.8rem;
+    }
+
+    .about-list {
+      list-style: none;
+      font-size: clamp(1rem, 1.9vw, 1.15rem);
+      margin-left: 0.2rem;
+    }
+
+    .about-list li {
+      position: relative;
+      padding-left: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .about-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #f04b31;
+    }
+
+    .about-extra {
+      margin-top: 0.8rem;
+      font-size: clamp(1rem, 1.9vw, 1.1rem);
+    }
+
+    .about-extra strong {
+      color: #f6c3a7;
+      font-weight: 700;
+    }
+
+    /* GALERIE */
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .gallery-item {
+      border-radius: 0.35rem;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+      border: 2px solid rgba(255,255,255,0.08);
+    }
+
+    .gallery-item img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease-out;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ---------- BANDE SERVICE & CONTACT ---------- */
+    .services-strip {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin-top: 0.5rem;
+      padding: 1.2rem 0 0.5rem;
+      text-align: center;
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      letter-spacing: 0.06em;
+    }
+
+    .services-strip strong {
+      font-weight: 700;
+    }
+
+    .zone {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      margin-top: 0.35rem;
+    }
+
+    .contact-strip {
+      margin: 1.6rem auto 2.5rem;
+      padding: 1.1rem 1.4rem;
+      max-width: 650px;
+      border-radius: 0.6rem;
+      background: linear-gradient(
+        135deg,
+        rgba(240,75,49,0.95),
+        rgba(187,50,31,0.98)
+      );
+      box-shadow: 0 10px 22px rgba(0,0,0,0.75);
+      display: grid;
+      gap: 0.4rem;
+      text-align: center;
+      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    }
+
+    .contact-strip strong {
+      font-weight: 700;
+    }
+
+    .contact-strip a {
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .cta-btn-wrap {
+      margin-top: 0.7rem;
+      text-align: center;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 0.7rem 1.8rem;
+      border-radius: 999px;
+      background: #b62317;
+      color: #fffaf2;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 2px solid rgba(255,255,255,0.8);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.8);
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.9);
+      background: #e24f34;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding-bottom: 1.5rem;
+      opacity: 0.75;
+    }
+
+    /* ---------- PETITES ADAPTATIONS MOBILE ---------- */
+    @media (max-width: 600px) {
+      .nav {
+        gap: 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="content-width">
+      <nav class="nav">
+        <a href="#accueil">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="accueil" class="content-width">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-inner">
+          <h1 class="hero-tagline">
+            Votre Projet –
+            <span class="break">Notre Priorité</span>
+          </h1>
+
+          <div class="hero-cross">
+            <!-- Mets ici ton image de croix occitane blanche -->
+            <img src="images/croix-occitane-blanche.png" alt="Croix occitane MF Façades" />
+          </div>
+
+          <h2 class="hero-main-title">
+            MF Façades – Votre façadier dans le Tarn et l’Aude
+          </h2>
+
+          <p class="hero-description">
+            Spécialiste du <strong>ravalement de façade</strong> et de la
+            <strong>peinture extérieure</strong>, MF Façades accompagne
+            particuliers et professionnels dans tous leurs projets de rénovation.
+          </p>
+          <p class="hero-description">
+            Grâce à un savoir-faire artisanal et des <strong>finitions soignées</strong>,
+            nous redonnons vie à vos murs tout en assurant leur protection
+            et leur durabilité. Chez MF Façades, nous mettons un point d’honneur
+            à respecter les délais, la qualité et vos attentes, car
+            <strong>votre projet est notre priorité.</strong>
+          </p>
+        </div>
+      </section>
+
+      <!-- A PROPOS + PHOTOS -->
+      <section id="apropos" class="about">
+        <div class="about-grid">
+          <!-- Colonne texte -->
+          <div>
+            <h3 class="about-title">À propos</h3>
+            <p class="about-name">Fernandes Ferreira Miguel</p>
+
+            <ul class="about-list">
+              <li>Débute à 14 ans en apprentissage au CFA de Cunac à Albi</li>
+              <li>Devient chef d’équipe en façade et rénovation</li>
+              <li>Ensuite maître d’œuvre en rénovation de façades</li>
+              <li>Fondateur de <strong>MF Façades</strong> à 30 ans</li>
+            </ul>
+
+            <p class="about-extra">
+              Aujourd’hui, j’interviens autour de <strong>Gaillac (81)</strong> et
+              de <strong>Vinassan (11)</strong> pour tous vos projets de
+              ravalement, enduits et peinture extérieure, avec un suivi sérieux
+              du premier contact jusqu’aux finitions.
+            </p>
+          </div>
+
+          <!-- Colonne photos -->
+          <div id="realisations" class="gallery">
+            <div class="gallery-item">
+              <!-- Photo projection enduit -->
+              <img src="images/miguel-projection-enduit.jpg" alt="Application d'enduit de façade" />
+            </div>
+            <div class="gallery-item">
+              <!-- Maison pierre + piscine -->
+              <img src="images/maison-pierre-piscine.jpg" alt="Rénovation façade pierre avec piscine" />
+            </div>
+            <div class="gallery-item">
+              <!-- Mur pierre + végétation -->
+              <img src="images/mur-pierre-jardin.jpg" alt="Ravalement mur en pierre et enduit" />
+            </div>
+            <div class="gallery-item">
+              <!-- Façade sous auvent -->
+              <img src="images/facade-sous-auvent.jpg" alt="Travaux de façade sous auvent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BANDE SERVICES / ZONE / CONTACT -->
+      <section id="contact">
+        <div class="services-strip">
+          <strong>MF Façades – Ravalement | Enduits | Peinture | Nettoyage de façades</strong>
+          <div class="zone">Zone : Tarn &amp; Aude – Autour de Gaillac (81) et Vinassan (11)</div>
+        </div>
+
+        <div class="contact-strip">
+          <div><strong>Fernandes Ferreira Miguel</strong> – MF Façades</div>
+          <div>Tél : <a href="tel:+33613844779">06 13 84 47 79</a></div>
+          <div>E-mail : <a href="mailto:MFFacades@outlook.fr">MFFacades@outlook.fr</a></div>
+          <div>Adresse : 474 chemin de Cariven, 81600 Gaillac</div>
+        </div>
+
+        <div class="cta-btn-wrap">
+          <a class="cta-btn" href="mailto:MFFacades@outlook.fr?subject=Demande%20de%20devis%20MF%20Fa%C3%A7ades">
+            Demander un devis
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © MF Façades – Fernandes Ferreira Miguel – Votre projet, notre priorité.
+    </footer>
+  </div>
+</body>
+</html>
