@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>MF Façades – Votre Projet, Notre Priorité</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MF Façades, votre façadier dans le Tarn et l'Aude. Ravalement, enduits, peinture et nettoyage de façades autour de Gaillac et Vinassan.">
+  <!-- Police script proche de ta carte -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --dark:#05070b;
+      --dark-slate:#0d1119;
+      --mf-red:#e34322;
+      --mf-red-dark:#b12d17;
+      --mf-white:#fdf7ef;
+      --text-main:#f7f1e6;
+      --text-soft:#ddd0c0;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+      font-family:"Playfair Display",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:#000;
+      color:var(--text-main);
+      display:flex;
+      justify-content:center;
+      min-height:100vh;
+    }
+
+    .page{
+      width:100%;
+      max-width:1200px;
+      min-height:100vh;
+      margin:0 auto;
+      position:relative;
+      overflow:hidden;
+      padding:40px 18px 40px;
+    }
+    @media (min-width:900px){
+      .page{padding:40px 40px 50px;}
+    }
+
+    /* FOND : ardoise + diagonale rouge/gris comme la maquette */
+    .page::before{
+      content:"";
+      position:absolute;
+      inset:-80px;
+      background:
+        /* lignes horizontales */
+        linear-gradient(#151923 1px, transparent 1px) 0 0 / 100% 38px repeat-y,
+        /* lignes verticales */
+        linear-gradient(90deg,#151923 1px, transparent 1px) 0 0 / 48px 100% repeat-x,
+        radial-gradient(circle at top,#1b212f 0,#05060a 60%);
+      opacity:0.96;
+      z-index:-2;
+    }
+
+    .page::after{
+      content:"";
+      position:absolute;
+      inset:-40px -80px -40px 40%;
+      background:linear-gradient(135deg,var(--mf-red-dark),var(--mf-red) 55%,#dfdfdd 85%,#f6f6f6);
+      clip-path:polygon(100% 0,100% 100%,35% 100%,80% 0);
+      box-shadow:-10px 0 40px rgba(0,0,0,.9);
+      z-index:-1;
+    }
+
+    main{max-width:1120px;margin:0 auto;}
+
+    /* NAVBAR */
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+    }
+
+    .logo-block{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo-icon{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      background:linear-gradient(135deg,#0b0e16,#161c26);
+      border:2px solid #fff;
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 10px 20px rgba(0,0,0,.8);
+    }
+    .logo-icon::before{
+      content:"";
+      position:absolute;
+      inset:8px 16px 8px 8px;
+      border:2px solid var(--mf-red);
+      border-right:none;
+    }
+    .logo-icon::after{
+      content:"";
+      position:absolute;
+      right:6px;
+      top:11px;
+      bottom:11px;
+      width:14px;
+      background:var(--mf-red);
+    }
+
+    .logo-text{
+      font-family:"Great Vibes",cursive;
+      font-size:30px;
+      color:var(--mf-white);
+      text-shadow:0 3px 10px rgba(0,0,0,.9);
+      white-space:nowrap;
+    }
+
+    .nav-menu{
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      color:var(--text-soft);
+    }
+    .nav-menu a{
+      text-decoration:none;
+      color:inherit;
+      position:relative;
+      padding-bottom:2px;
+    }
+    .nav-menu a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:0;
+      height:2px;
+      background:#fff;
+      transition:width .18s ease-out;
+    }
+    .nav-menu a:hover::after{width:100%;}
+
+    @media (max-width:600px){
+      .nav-menu{display:none;}
+    }
+
+    /* HERO – gros texte Votre Projet – Notre Priorité */
+
+    .hero{
+      text-align:center;
+      margin-bottom:30px;
+      margin-top:10px;
+    }
+
+    .hero-line-main{
+      font-family:"Great Vibes",cursive;
+      font-size:clamp(46px,7vw,70px);
+      color:var(--mf-white);
+      text-shadow:0 5px 18px rgba(0,0,0,1);
+    }
+    .hero-line-sub{
+      font-family:"Great Vibes",cursive;
+      font-size:clamp(44px,6.5vw,66px);
+      margin-top:-6px;
+      color:var(--mf-white);
+      text-shadow:0 5px 18px rgba(0,0,0,1);
+    }
+
+    .occitan{
+      margin:10px auto 0;
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      border:3px solid #fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 0 0 5px rgba(0,0,0,.6),0 10px 25px rgba(0,0,0,.9);
+    }
+    .occitan span{
+      font-size:32px;
+      font-weight:700;
+    }
+
+    /* BLOC INTRO TEXTE */
+
+    .headline{
+      margin-top:26px;
+      background:rgba(3,4,10,.90);
+      border-radius:22px;
+      padding:22px 22px 24px;
+      border:1px solid rgba(255,255,255,.15);
+      box-shadow:0 14px 32px rgba(0,0,0,.85);
+    }
+
+    .headline h1{
+      font-size:clamp(26px,3.4vw,32px);
+      line-height:1.25;
+      margin-bottom:10px;
+      color:var(--mf-white);
+    }
+
+    .headline p{
+      font-size:clamp(16px,2.1vw,18px);
+      line-height:1.7;
+      color:var(--text-soft);
+    }
+
+    /* CONTENU PRINCIPAL : À propos + photos */
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.2fr 1fr;
+      gap:24px;
+      margin-top:34px;
+    }
+    @media (max-width:860px){
+      .grid{grid-template-columns:1fr;}
+    }
+
+    .about{
+      background:rgba(3,4,10,.92);
+      border-radius:22px;
+      padding:22px 22px 26px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 12px 30px rgba(0,0,0,.85);
+    }
+
+    .about-title{
+      font-family:"Great Vibes",cursive;
+      font-size:clamp(32px,4.1vw,40px);
+      margin-bottom:6px;
+      color:var(--mf-white);
+    }
+    .about-name{
+      font-family:"Great Vibes",cursive;
+      font-size:clamp(28px,3.5vw,34px);
+      margin-bottom:14px;
+      color:var(--mf-white);
+    }
+
+    .about ul{
+      list-style:none;
+      font-size:clamp(15px,2.2vw,17px);
+      line-height:1.8;
+      color:var(--text-soft);
+      margin-bottom:16px;
+    }
+    .about li{
+      position:relative;
+      padding-left:20px;
+      margin-bottom:3px;
+    }
+    .about li::before{
+      content:"•";
+      position:absolute;
+      left:4px;
+      top:-1px;
+      color:var(--mf-red);
+      font-size:18px;
+    }
+
+    .about-zone{
+      font-size:clamp(15px,2.2vw,17px);
+      color:var(--text-soft);
+    }
+
+    /* GALERIE DROITE */
+
+    .gallery{
+      display:grid;
+      grid-template-rows:1.3fr 1fr;
+      gap:14px;
+    }
+
+    .photo-main{
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 12px 30px rgba(0,0,0,.9);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .photo-main img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .photo-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .photo-small{
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 10px 24px rgba(0,0,0,.85);
+      border:1px solid rgba(255,255,255,.1);
+    }
+    .photo-small img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* BANDEAU SERVICES + CTA */
+
+    .services{
+      margin-top:28px;
+      border-radius:26px;
+      padding:16px 20px;
+      background:linear-gradient(90deg,#04060b,#101624 40%,var(--mf-red-dark) 70%,var(--mf-red) 100%);
+      border:1px solid rgba(255,255,255,.3);
+      box-shadow:0 16px 40px rgba(0,0,0,.95);
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    .services-main{
+      font-size:clamp(17px,2.4vw,20px);
+      font-weight:600;
+    }
+    .services-sub{
+      font-size:clamp(14px,2vw,16px);
+      color:var(--text-soft);
+    }
+
+    .cta{
+      text-decoration:none;
+      background:#f7ba74;
+      background:linear-gradient(135deg,#ffd7a0,#f7b05f);
+      color:#3d1a05;
+      padding:11px 22px;
+      border-radius:999px;
+      font-size:15px;
+      font-weight:700;
+      border:2px solid #fff;
+      box-shadow:0 10px 26px rgba(0,0,0,.9);
+      white-space:nowrap;
+    }
+
+    @media (max-width:600px){
+      .services{flex-direction:column;align-items:flex-start;}
+      .cta{align-self:flex-start;}
+    }
+
+    /* CONTACT BAS DE PAGE */
+
+    .contact{
+      margin-top:24px;
+      background:rgba(3,4,10,.94);
+      border-radius:22px;
+      padding:18px 20px 20px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 12px 30px rgba(0,0,0,.9);
+      font-size:clamp(16px,2.3vw,18px);
+      line-height:1.8;
+    }
+    .contact-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+    .contact-label{font-weight:600;}
+    .contact-strong{font-weight:700;color:var(--mf-white);}
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <main>
+      <!-- NAVBAR -->
+      <header class="nav">
+        <div class="logo-block">
+          <div class="logo-icon" aria-hidden="true"></div>
+          <div class="logo-text">MF Façades</div>
+        </div>
+        <nav class="nav-menu">
+          <a href="#accueil">Accueil</a>
+          <a href="#apropos">À propos</a>
+          <a href="#realisations">Réalisations</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <!-- HERO -->
+      <section id="accueil" class="hero">
+        <div class="hero-line-main">Votre Projet –</div>
+        <div class="hero-line-sub">Notre Priorité</div>
+        <div class="occitan"><span>✚</span></div>
+
+        <div class="headline">
+          <h1>MF Façades – Votre façadier dans le Tarn et l’Aude</h1>
+          <p>
+            Spécialiste du ravalement de façade et de la peinture extérieure,
+            MF Façades accompagne particuliers et professionnels dans tous leurs
+            projets de rénovation. Grâce à un savoir-faire artisanal et des
+            finitions soignées, nous redonnons vie à vos murs tout en assurant
+            leur protection et leur durabilité. Chez MF Façades, nous mettons
+            un point d’honneur à respecter les délais, la qualité et vos
+            attentes, car votre projet est notre priorité.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTENU PRINCIPAL -->
+      <section class="grid">
+        <!-- À propos -->
+        <article id="apropos" class="about">
+          <h2 class="about-title">À propos</h2>
+          <p class="about-name">Fernandes Ferreira Miguel</p>
+          <ul>
+            <li>Débute à 14 ans au CFA de Cunac à Albi.</li>
+            <li>Devient chef d’équipe sur chantiers de façades.</li>
+            <li>Devient ensuite maître d’œuvre en rénovation.</li>
+            <li>Fondateur de MF Façades à 30 ans.</li>
+          </ul>
+          <p class="about-zone">
+            Intervient autour de <strong>Gaillac (81)</strong> et
+            <strong>Vinassan (11)</strong>, sur tout le Tarn et l’Aude :
+            ravalement, enduits, peinture extérieure, nettoyage de façades.
+          </p>
+        </article>
+
+        <!-- Galerie -->
+        <aside id="realisations" class="gallery">
+          <div class="photo-main">
+            <img src="images/Rendu en pleine taille.jpeg" alt="Réalisation MF Façades">
+          </div>
+          <div class="photo-row">
+            <div class="photo-small">
+              <img src="images/IMG_2475.jpeg" alt="Façade rénovée par MF Façades">
+            </div>
+            <div class="photo-small">
+              <img src="images/IMG_2495.jpeg" alt="Travaux de façade MF Façades">
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- BANDEAU SERVICES -->
+      <section class="services">
+        <div>
+          <div class="services-main">
+            MF Façades – Ravalement | Enduits | Peinture | Nettoyage de façades
+          </div>
+          <div class="services-sub">
+            Zone : Tarn &amp; Aude – Autour de Gaillac (81) et Vinassan (11)
+          </div>
+        </div>
+        <a href="#contact" class="cta">Demander un devis</a>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact">
+        <div class="contact-row">
+          <div>
+            <span class="contact-label">Nom :</span>
+            <span class="contact-strong">Fernandes Ferreira Miguel</span>
+          </div>
+          <div>
+            <span class="contact-label">Téléphone :</span>
+            <span class="contact-strong">06 13 84 47 79</span>
+          </div>
+        </div>
+        <div class="contact-row" style="margin-top:6px;">
+          <div>
+            <span class="contact-label">E-mail :</span>
+            <span class="contact-strong">MFFacades@outlook.fr</span>
+          </div>
+        </div>
+        <div class="contact-row" style="margin-top:6px;">
+          <div>
+            <span class="contact-label">Adresse :</span>
+            <span class="contact-strong">474 chemin de Cariven, 81600 Gaillac</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
